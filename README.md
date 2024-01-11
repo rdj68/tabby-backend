@@ -4,6 +4,9 @@ This repository builds a server for the tabbyML clients (VSCode, Vim, IntelliJ).
 
 ## Getting Started
 
+The code requires the credentials of your google cloud service account, below is the official doc to generate a key.
+[Create google account credentials](https://cloud.google.com/iam/docs/keys-create-delete#iam-service-account-keys-create-console)
+
 To run this project, follow these steps:
 
 1. **Create a Python Virtual Environment:**
@@ -37,3 +40,4 @@ The latency of the gemini api is slow so configure the tabbyML extension to ince
    ```bash
    nano ~/.tabby-client/agent/config.toml
    ```
+ 
