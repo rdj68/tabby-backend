@@ -3,9 +3,11 @@ import os
 import socket
 import schemas
 
+
 def get_cpu_info():
     # This is a placeholder. Replace with your method of getting CPU info.
     return "Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz"
+
 
 def get_health_state() -> schemas.HealthState:
     return schemas.HealthState(
@@ -24,21 +26,20 @@ def get_health_state() -> schemas.HealthState:
         )
     )
 
-    
+
 # Function to create prompt from request body
 def create_prompt(request_body: schemas.CompletionRequest):
-    language, prefix, suffix = None, None, None 
-
+    language, prefix, suffix = None, None, None
 
     if request_body.language is not None:
         language = request_body.language
     if request_body.segments is not None:
         prefix = request_body.segments.get("prefix")
         suffix = request_body.segments.get("suffix")
-    
+
     if prefix is None and suffix is None:
         return ""
-    
+
     prompt = """# Generate 5 code snippets for the following prompt. The generated code snippets should follow these rules:
     1. The generated code snippets should be valid code in the language specified.
     2. The generated code snippets should be related to prefix or suffix.
